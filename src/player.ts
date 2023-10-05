@@ -13,7 +13,7 @@ export class Player {
     this.health = 100;
   }
 
-  move(direction: string, enemies: Enemy[]): void {
+  move( direction: string, enemies: Enemy[] ): void {
     const newX = this.x + (direction === "RIGHT" ? 1 : direction === "LEFT" ? -1 : 0);
     const newY = this.y + (direction === "DOWN" ? 1 : direction === "UP" ? -1 : 0);
 
@@ -44,7 +44,7 @@ export class Player {
       });
 
       // Shoot the closest enemy
-      inLineEnemies[0].takeDamage(10);
+      inLineEnemies[0].takeDamage(100); // We instant kill for speed
     }
   }
 }

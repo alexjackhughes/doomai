@@ -34,7 +34,10 @@ If you find this project intriguing and wish to contribute, please follow the st
 
 ## Things left to do
 
-- [ ] Create a GPT instance
-- [ ] Allow GPT to move around the map
-- [ ] Allow GPT to shoot at the enemy
-- [ ] Allow GPT to see the current state of the map
+- [x] Create a GPT instance
+- [x] Allow GPT to move around the map
+- [x] Allow GPT to shoot at the enemy
+- [x] Allow GPT to see the current state of the map
+- [ ] Improve GPT's ability to understand the map, by moving from a grid system to a more natural language like "There is a wall directly in front and to the left of you"
+- [ ] Add the ability for GPT to press a button to open a door, and pass through it to win
+- [ ] Make it work with vizdoom, by taking screenshot of the current screen and converting that into text

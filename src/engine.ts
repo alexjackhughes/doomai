@@ -1,3 +1,4 @@
+import console from "console";
 import { queryGPT } from "./ai";
 import { Enemy } from "./enemy";
 import { Player } from "./player";
@@ -31,8 +32,9 @@ export const parseAndExecutePlayerAction = ( action: string, player: Player, ene
   // const thoughtsMatch = action.match( thoughtsRegex );
 
   // Parse and execute the 'move' action
-  const direction: any = directionMatch?.[1].toLocaleLowerCase();
-  if (['up', 'down', 'left', 'right'].includes(direction)) {
+  const direction: any = directionMatch?.[1].toLocaleUpperCase();
+
+  if (['UP', 'DOWN', 'LEFT', 'RIGHT'].includes(direction)) {
     player.move(direction, enemies);
   }
 
