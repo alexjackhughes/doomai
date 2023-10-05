@@ -36,8 +36,8 @@ If you find this project intriguing and wish to contribute, please follow the st
 - [x] Allow GPT to move around the map
 - [x] Allow GPT to shoot at the enemy
 - [x] Allow GPT to see the current state of the map
-- [ ] Improve GPT's ability to understand the map, by moving from a grid system to a more natural language like "There is a wall directly in front and to the left of you"
+- [ ] Improve GPT's ability to understand the map, by moving from a grid system to a more natural language i.e. "There is a wall directly in front and to the left of you, there is an enemy to your right."
 - [ ] Add the ability for GPT to press a button to open a door, and pass through it to win
 - [ ] Add the ability for GPT to pick up health items, and use them to heal
-- [ ] Ask its thought process first, and then execute the action which should result in its thought process always being acted on.
-- [ ] Make it work with vizdoom, by taking screenshot of the current screen and converting that into text
+- [x] Ask its thought process first, and then execute the action which should result in its thought process always being acted on.
+- [ ] Make it work with vizdoom, by taking a screenshots of the current screen and having an neural network trained to classify that into naturally sounding text i.e. "There is a wall directly in front and to the left of you, there is an enemy to your right."
