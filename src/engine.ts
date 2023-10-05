@@ -18,21 +18,26 @@ export const displayGameState = (player: Player, enemies: Enemy[]): string => {
   let inFront = player.canSeeEnemy(enemies) ? "There is an enemy in front of you." : "There are no enemies in front of you.";
 
 
-  return `${position} ${remaining} ${statuses} ${inFront}`;
+  return `${position} \n ${remaining} \n ${statuses} \n ${inFront}`;
 };
 
-export const parseAndExecutePlayerAction = (actionString: string, player: Player, enemies: Enemy[]): void {
-  // Split the string into the direction and shooting action
-  const [directionPart, shootPart] = actionString.split('. ').map(s => s.trim());
+export const parseAndExecutePlayerAction = ( action: string, player: Player, enemies: Enemy[] ): void => {
+  const directionRegex = /DIRECTION:\s?(UP|DOWN|LEFT|RIGHT)\./;
+  // const thoughtsRegex = /\[(.*?)\]/;
+  const shootRegex = /(SHOOT)\./;
+
+  const directionMatch = action.match(directionRegex);
+  const shootMatch = action.match(shootRegex);
+  // const thoughtsMatch = action.match( thoughtsRegex );
 
   // Parse and execute the 'move' action
-  const direction: any = directionPart.split(': ')[1].toLowerCase();
+  const direction: any = directionMatch?.[1].toLocaleLowerCase();
   if (['up', 'down', 'left', 'right'].includes(direction)) {
-    player.move(direction);
+    player.move(direction, enemies);
   }
 
   // Parse and execute the 'shoot' or 'no shoot' action
-  if (shootPart === 'SHOOT') {
+  if (shootMatch?.[1] === 'SHOOT') {
     if (player.canSeeEnemy(enemies)) {
       player.shoot(enemies);
     }

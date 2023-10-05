@@ -15,7 +15,8 @@ It was in response to this [tweet](https://twitter.com/DrJimFan/status/170994759
 The easiest way to get this working is to:
 
 1. Add your OpenAI key to the `.env` file.
-2. Run `bun run world.ts`
+2. Run `bun install`
+3. Run `bun run index.ts`
 
 ## Structure
 

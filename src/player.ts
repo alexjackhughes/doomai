@@ -13,26 +13,16 @@ export class Player {
     this.health = 100;
   }
 
-  move(direction: Direction): void {
-    let newX = this.x;
-    let newY = this.y;
+  move(direction: string, enemies: Enemy[]): void {
+    const newX = this.x + (direction === "RIGHT" ? 1 : direction === "LEFT" ? -1 : 0);
+    const newY = this.y + (direction === "DOWN" ? 1 : direction === "UP" ? -1 : 0);
 
-    switch (direction) {
-      case "up":
-        newY -= 1;
-        break;
-      case "right":
-        newX += 1;
-        break;
-      case "down":
-        newY += 1;
-        break;
-      case "left":
-        newX -= 1;
-        break;
-    }
-
-    if (newX >= 0 && newX <= 10 && newY >= 0 && newY <= 10) {
+    // Check if move is within bounds and not on the same tile as any enemy
+    if (
+      newX >= 0 && newX <= 9 &&
+      newY >= 0 && newY <= 9 &&
+      !enemies.some(enemy => enemy.x === newX && enemy.y === newY)
+    ) {
       this.x = newX;
       this.y = newY;
     }

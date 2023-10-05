@@ -14,30 +14,19 @@ export class Enemy {
   }
 
   // Logic to move the enemy
- move(): void {
-    // Generate a random direction: 0=Up, 1=Right, 2=Down, 3=Left
-    const direction = Math.floor(Math.random() * 4);
+  move(player: Player): void {
+    const directions = ["UP", "DOWN", "LEFT", "RIGHT"];
+    const randomDirection = directions[Math.floor(Math.random() * directions.length)];
 
-    let newX = this.x;
-    let newY = this.y;
+    const newX = this.x + (randomDirection === "RIGHT" ? 1 : randomDirection === "LEFT" ? -1 : 0);
+    const newY = this.y + (randomDirection === "DOWN" ? 1 : randomDirection === "UP" ? -1 : 0);
 
-    switch (direction) {
-      case 0:
-        newY -= 1; // Up
-        break;
-      case 1:
-        newX += 1; // Right
-        break;
-      case 2:
-        newY += 1; // Down
-        break;
-      case 3:
-        newX -= 1; // Left
-        break;
-    }
-
-    // Check if the new coordinates are within the 10x10 grid
-    if (newX >= 0 && newX <= 10 && newY >= 0 && newY <= 10) {
+    // Check if move is within bounds and not on the same tile as the player
+    if (
+      newX >= 0 && newX <= 9 &&
+      newY >= 0 && newY <= 9 &&
+      !(player.x === newX && player.y === newY)
+    ) {
       this.x = newX;
       this.y = newY;
     }
@@ -50,9 +39,9 @@ export class Enemy {
   }
 
   attack(player: Player): void {
-    const damage = 10;  // Or however much you want to set this to
+    const damage = 5;  // Or however much you want to set this to
     player.health -= damage;
-    console.log(`${this.type} attacks! Player health is now ${player.health}.`); // Potentially need to pass this to the AI
+    console.log(`${this.type} attacks! Player health is now ${player.health}. \n`); // Potentially need to pass this to the AI
   }
 
   takeDamage(damage: number): void {

@@ -21,7 +21,7 @@ export const initWorld = async (): Promise<void> => {
         if (enemy.identifyPlayerProximity(player.x, player.y)) {
           enemy.attack(player);
         } else {
-          enemy.move();
+          enemy.move(player);
         }
       }
     } );
@@ -29,7 +29,7 @@ export const initWorld = async (): Promise<void> => {
     // Print out the game state
     console.log(displayGameState( player, enemies ));
 
-    // Player actions here: move, canSeeEnemy, shoot
+    // // Player actions here: move, canSeeEnemy, shoot
     await runAIAndExecuteActions(player, enemies);
 
     // Check if all enemies are dead to end the game
