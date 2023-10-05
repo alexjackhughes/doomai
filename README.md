@@ -6,7 +6,9 @@ Welcome to DOOMPT! This project serves as a text-based simulation of the classic
 
 In the default settings, there is a player character and enemy characters. The player character can move around the map, and the enemy characters can move around the map and shoot at the player. The player can shoot back at the enemy, and the enemies can die. The player can also die. The map is a 10x10 grid, and by default there are three enemy characters.
 
-The primary objective is not just to recreate a rudimentary game loop, but to serve as an experimental platform for testing GPT models on their capability to understand and interact with simulated environments, thereby testing the hypothesis: "Does GPT have a 'world model'?"
+The primary objective is not just to recreate a rudimentary game loop, but to serve as an experimental platform for testing GPT models on their capability to understand and interact with simulated environments, thereby testing the hypothesis: "Does GPT have a 'world model'?".
+
+For sanity reasons, there are console.log statements that print out the current state of the world, and the actions that the GPT model is taking. This is to ensure that the GPT model is actually doing something, and not just sitting there.
 
 It was a musing in response to [tweet](https://twitter.com/DrJimFan/status/1709947595525951787).
 
@@ -23,10 +25,6 @@ The easiest way to get this working is to:
 - `Player`: The Player class is responsible for the player's state and actions.
 - `Enemy`: The Enemy class is responsible for the enemy characters' state and actions.
 - `initWorld()`: This function initializes the world and handles the game loop.
-
-## Experiment with GPT
-
-I've provided a rudimentary interface for GPT models to play as the player character. This serves as an experimental setup to understand the GPT's decision-making process and analyze its interactions within a simulated world, ultimately gauging its concept of a 'world model'.
 
 ## How to Contribute
 

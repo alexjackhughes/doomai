@@ -6,7 +6,7 @@ const openai = new OpenAI({
 
 export async function queryGPT(prompt: string): Promise<string> {
    const chatCompletion = await openai.chat.completions.create({
-    messages: [{ role: 'user', content: `You are playing a simulation of the game DOOM. Your in a room that is 10x10. You move one square at a time, so [0,10] would be the bottom-left of the "room". You can move one space a turn, and can shoot enemies. Your job is to try and kill all the enemies in the room.
+    messages: [{ role: 'user', content: `You are playing a simulation of the game DOOM. Your in a room that is 10x10. You move one square at a time, so [0,10] would be the bottom-left of the "room". You can move one space a turn, and can shoot only the enemy directly in front of you. Your job is to try and kill all the enemies in the room.
 
 You'll always information of the world in this format:
 
@@ -14,7 +14,7 @@ The player's position is: [0,0]. There are 3 enemies remaining. The enemies are 
 
 And you must always answer in this format:
 
-DIRECTION: UP/DOWN/LEFT/RIGHT. SHOOT/NOSHOOT.[Your thought process on why you chose to make these actions]
+[Your thought process on why you chose to make these actions]. DIRECTION: UP/DOWN/LEFT/RIGHT. SHOOT/NOSHOOT.
 
 It's really important that you say nothing but a variation of the line above. Think silently through what you should do based on the game state, and then do a variation of the line above with the goal of defeating all the enemies of the level.
 

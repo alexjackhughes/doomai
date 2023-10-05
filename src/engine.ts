@@ -34,6 +34,8 @@ export const parseAndExecutePlayerAction = ( action: string, player: Player, ene
   // Parse and execute the 'move' action
   const direction: any = directionMatch?.[1].toLocaleUpperCase();
 
+  console.log( direction )
+
   if (['UP', 'DOWN', 'LEFT', 'RIGHT'].includes(direction)) {
     player.move(direction, enemies);
   }
