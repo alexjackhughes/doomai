@@ -14,7 +14,7 @@ export const initWorld = async (): Promise<void> => {
     new Enemy(9, 1, "Demon")
   ];
 
-  while (turn <= 10) {
+  while (turn <= 25) {
     // Enemy actions, same as before
     enemies.forEach((enemy: Enemy) => {
       if (enemy.isAlive()) {
