@@ -16,7 +16,7 @@ export const displayGameState = (player: Player, enemies: Enemy[]): string => {
 
 
   // Check and display if an enemy is in front of the player
-  let inFront = player.canSeeEnemy(enemies) ? "There is an enemy in front of you." : "There are no enemies in front of you.";
+  let inFront = player.canSeeEnemy(enemies) ? "There is an enemy in front of you. \n" : "There are no enemies in front of you. \n";
 
 
   return `${position} \n ${remaining} \n ${statuses} \n ${inFront}`;
@@ -34,9 +34,7 @@ export const parseAndExecutePlayerAction = ( action: string, player: Player, ene
   // Parse and execute the 'move' action
   const direction: any = directionMatch?.[1].toLocaleUpperCase();
 
-  console.log( direction )
-
-  if (['UP', 'DOWN', 'LEFT', 'RIGHT'].includes(direction)) {
+  if ( ['UP', 'DOWN', 'LEFT', 'RIGHT'].includes( direction ) ) {
     player.move(direction, enemies);
   }
 

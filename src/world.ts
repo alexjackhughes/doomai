@@ -5,7 +5,7 @@ import { Player } from "./player";
 export const initWorld = async (): Promise<void> => {
   let turn: number = 0;
 
-  const player: Player = new Player(0, 0);
+  const player: Player = new Player(9, 9);
 
   // Initialize enemies, same as before
   const enemies: Enemy[] = [

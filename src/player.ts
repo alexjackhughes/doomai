@@ -15,7 +15,9 @@ export class Player {
 
   move( direction: string, enemies: Enemy[] ): void {
     const newX = this.x + (direction === "RIGHT" ? 1 : direction === "LEFT" ? -1 : 0);
-    const newY = this.y + (direction === "DOWN" ? 1 : direction === "UP" ? -1 : 0);
+    const newY = this.y + ( direction === "DOWN" ? 1 : direction === "UP" ? -1 : 0 );
+
+    console.log('The player tries to move:', direction, newX, newY, '\n')
 
     // Check if move is within bounds and not on the same tile as any enemy
     if (
@@ -28,8 +30,8 @@ export class Player {
     }
   }
 
-  canSeeEnemy(enemies: Enemy[]): boolean {
-    return enemies.some(enemy => enemy.x === this.x || enemy.y === this.y);
+  canSeeEnemy( enemies: Enemy[] ): boolean {
+    return enemies.some(enemy => (enemy.x === this.x || enemy.y === this.y) && enemy.health === 100);
   }
 
   shoot(enemies: Enemy[]): void {

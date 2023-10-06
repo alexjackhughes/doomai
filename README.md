@@ -37,6 +37,7 @@ If you find this project intriguing and wish to contribute, please follow the st
 - [x] Allow GPT to shoot at the enemy
 - [x] Allow GPT to see the current state of the map
 - [ ] Improve GPT's ability to understand the map, by moving from a grid system to a more natural language i.e. "There is a wall directly in front and to the left of you, there is an enemy to your right."
+- [ ] GPT should have access to it's previous moves as messages, to help it understand what it's already done
 - [ ] Add the ability for GPT to press a button to open a door, and pass through it to win
 - [ ] Add the ability for GPT to pick up health items, and use them to heal
 - [x] Ask its thought process first, and then execute the action which should result in its thought process always being acted on.
